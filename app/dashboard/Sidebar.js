@@ -9,6 +9,14 @@ const sidebarLinks = [
     label: "analytics",
     link: "/dashboard/analytics",
   },
+  {
+    label: "admin",
+    link: "/dashboard/admin",
+  },
+  {
+    label: "about admin",
+    link: "/dashboard/admin#aboutAdmin",
+  },
 ];
 
 export default function Sidebar() {

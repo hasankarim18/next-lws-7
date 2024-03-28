@@ -1,11 +1,12 @@
-export const metadata = {
-  title: "Settings",
-  description: "Dashboard settings section",
-};
+"use client";
+import RoutingButton from "@/app/components/RoutingButton";
+
+// export const metadata = {
+//   title: "Settings",
+//   description: "Dashboard settings section",
+// };
 
 export default function Settings() {
-  console.log("Rendering settigns.js");
-
   return (
     <div>
       <h1 className="text-2xl">Settings page</h1>
@@ -15,6 +16,15 @@ export default function Settings() {
         dignissimos exercitationem! Voluptates repudiandae facilis sapiente
         voluptatum maxime ullam animi repellendus.
       </p>
+      <div className="mt-4">
+        <RoutingButton
+          varient="solid"
+          path="/dashboard/analytics"
+          className="rounded-md"
+        >
+          Go to analytices
+        </RoutingButton>
+      </div>
     </div>
   );
 }

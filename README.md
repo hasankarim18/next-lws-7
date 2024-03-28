@@ -1,6 +1,9 @@
 # Lws Next.js Module 7
 
-### Custom Link Reusable component with tailwind cn function
+- [Custom Link Reusable component with tailwind cn function](#Custom-Link-Reusable-component-with-tailwind-cn-function)
+- [How to create Routing Button](#routing-button)
+
+### #Custom Link Reusable component with tailwind cn function
 
 ```"use client";
 import Link from "next/link";
@@ -26,3 +29,82 @@ export default function CustomLink({ children, path, className }) {
 
 - [For `cn` functin visit this repository ](https://github.com/hasankarim18/react-reusable-component-typescript)
   : https://github.com/hasankarim18/react-reusable-component-typescript
+
+---
+
+## Routing Button
+
+- Routing button design with cn function and forward ref
+
+```
+/* eslint-disable react/display-name */
+"use client";
+import { useRouter } from "next/navigation";
+import { forwardRef } from "react";
+import cn from "../utils/cn";
+
+const RoutingButton = forwardRef(
+  ({ varient, children, className, onClick, path, ...rest }, ref) => {
+    const router = useRouter();
+
+    const getVarient = (varient) => {
+      switch (varient) {
+        case "outline":
+          return "btn-outline";
+        case "ghost":
+          return "btn-ghost";
+        case "solid":
+          return "btn-solid";
+        default:
+          return "btn";
+      }
+    };
+
+    return (
+      <button
+        // varient={varient}
+        ref={ref}
+        onClick={() => {
+          router.push(path);
+        }}
+        {...rest}
+        className={cn("btn", getVarient(varient), className)}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+export default RoutingButton;
+
+```
+
+- How to use it in component
+- path indicating the where it should go
+- it is special case make the button client
+
+```
+"use client";
+import RoutingButton from "@/app/components/RoutingButton";
+
+
+export default function Settings() {
+  const router = useRouter();
+
+  return (
+    <div>
+      <div className="mt-4">
+        <RoutingButton
+          varient="solid"
+          path="/dashboard/analytics"
+          className="rounded-md"
+        >
+          Go to analytices
+        </RoutingButton>
+      </div>
+    </div>
+  );
+}
+
+```
