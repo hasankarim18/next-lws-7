@@ -1,5 +1,6 @@
 /* eslint-disable react/display-name */
 "use client";
+
 import { useRouter } from "next/navigation";
 import { forwardRef } from "react";
 import cn from "../utils/cn";
@@ -23,7 +24,7 @@ const RoutingButton = forwardRef(
 
     return (
       <button
-        // varient={varient}
+        varient={varient}
         ref={ref}
         onClick={() => {
           router.push(path);
@@ -36,5 +37,4 @@ const RoutingButton = forwardRef(
     );
   }
 );
-
 export default RoutingButton;

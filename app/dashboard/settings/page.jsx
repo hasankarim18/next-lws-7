@@ -1,10 +1,10 @@
-"use client";
-import RoutingButton from "@/app/components/RoutingButton";
+import Button from "@/app/components/Button";
+import SortProducts from "@/app/components/SortProducts";
 
-// export const metadata = {
-//   title: "Settings",
-//   description: "Dashboard settings section",
-// };
+export const metadata = {
+  title: "Settings",
+  description: "Dashboard settings section",
+};
 
 export default function Settings() {
   return (
@@ -17,13 +17,16 @@ export default function Settings() {
         voluptatum maxime ullam animi repellendus.
       </p>
       <div className="mt-4">
-        <RoutingButton
-          varient="solid"
+        <Button
+          varient="danger"
           path="/dashboard/analytics"
           className="rounded-md"
         >
-          Go to analytices
-        </RoutingButton>
+          Routing button / Go to analytices
+        </Button>
+      </div>
+      <div className="mt-4">
+        <SortProducts />
       </div>
     </div>
   );

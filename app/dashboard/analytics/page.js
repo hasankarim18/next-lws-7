@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Analytics",
+  description: "Analytics page under dashboard",
+};
+
 export default function Analytics() {
   return (
     <div className="p-4">
